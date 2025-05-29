@@ -18,7 +18,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		DC402BFC2DE879C800E94468 /* Exceptions for "kofu-gamehub" folder in "kofu-gamehub" target */ = {
+		DC14BB192DE88CA90046EFE2 /* Exceptions for "kofu-gamehub" folder in "kofu-gamehub" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				FileSystems/Info.plist,
@@ -31,7 +31,7 @@
 		DC402BEF2DE8792A00E94468 /* kofu-gamehub */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				DC402BFC2DE879C800E94468 /* Exceptions for "kofu-gamehub" folder in "kofu-gamehub" target */,
+				DC14BB192DE88CA90046EFE2 /* Exceptions for "kofu-gamehub" folder in "kofu-gamehub" target */,
 			);
 			path = "kofu-gamehub";
 			sourceTree = "<group>";

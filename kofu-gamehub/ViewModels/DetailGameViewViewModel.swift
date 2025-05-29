@@ -8,5 +8,5 @@
 import Foundation
 
 class DetailGameViewViewModel: ObservableObject {
-    @Published var text = "Hello World!"
+    @Published var text = "DetailGameView"
 }

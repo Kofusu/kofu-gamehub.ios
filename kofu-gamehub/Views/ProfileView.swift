@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(\.dismiss) var dissmiss
+    
     @StateObject var viewModel = ProfileViewViewModel()
     
     var body: some View {
         Text(viewModel.text)
+        Button("Dissmiss") {
+            dissmiss()
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 

@@ -8,5 +8,5 @@
 import Foundation
 
 class ProfileViewViewModel: ObservableObject {
-    @Published var text = "Hello World!"
+    @Published var text = "ProfileView"
 }

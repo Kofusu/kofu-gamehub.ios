@@ -8,5 +8,5 @@
 import Foundation
 
 class MainViewViewModel: ObservableObject {
-    @Published var text = "Hello World!"
+    @Published var text = "MainView"
 }
