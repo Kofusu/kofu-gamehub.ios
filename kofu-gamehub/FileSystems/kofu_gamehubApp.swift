@@ -12,6 +12,7 @@ struct kofu_gamehubApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .font(.custom("VT323-Regular", size: 16))
         }
     }
 }

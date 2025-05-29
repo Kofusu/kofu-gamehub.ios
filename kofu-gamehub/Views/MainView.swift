@@ -12,12 +12,19 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            Text(viewModel.text)
-                .font(.custom("VT323-Regular", size: 17))
-            NavigationLink {
-                ProfileView()
-            } label: {
-                Text("To Profile")
+            ZStack {
+                Color.darkBlue.ignoresSafeArea(.all)
+                
+                VStack {
+                    Text(viewModel.text)
+                        .font(.custom("VT323-Regular", size: 17))
+                        .foregroundStyle(.lightCyan)
+                    NavigationLink {
+                        ProfileView()
+                    } label: {
+                        Text("To Profile")
+                    }
+                }
             }
         }
     }
