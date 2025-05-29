@@ -11,7 +11,7 @@ import SwiftUI
 struct kofu_gamehubApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
