@@ -15,18 +15,21 @@ struct MainView: View {
             ZStack {
                 Color.darkBlue.ignoresSafeArea(.all)
                 
-                VStack {
+                VStack(spacing: 24) {
                     // Header
                     NavbarHeader(text: $viewModel.searchText, showMenu: $viewModel.showMenu)
                         .confirmationDialog("MainMenu", isPresented: $viewModel.showMenu) {
                             NavigationLink {
                                 ProfileView()
                             } label: {
-                                Text("To Profile")
+                                Text("Creator Profile")
                             }
                         }
                     
                     Text("Hello World!")
+                        .font(.custom("VT323-Regular", size: 32))
+                        .dynamicTypeSize(.xLarge ... .accessibility1)
+                        .foregroundStyle(.lightCyan)
                     
                     Spacer()
                 }
