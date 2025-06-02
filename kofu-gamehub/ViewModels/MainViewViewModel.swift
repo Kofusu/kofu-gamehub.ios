@@ -8,5 +8,6 @@
 import Foundation
 
 class MainViewViewModel: ObservableObject {
-    @Published var text = "MainView"
+    @Published var searchText = ""
+    @Published var showMenu = false
 }

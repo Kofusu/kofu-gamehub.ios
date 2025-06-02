@@ -16,14 +16,19 @@ struct MainView: View {
                 Color.darkBlue.ignoresSafeArea(.all)
                 
                 VStack {
-                    Text(viewModel.text)
-                        .font(.custom("VT323-Regular", size: 17))
-                        .foregroundStyle(.lightCyan)
-                    NavigationLink {
-                        ProfileView()
-                    } label: {
-                        Text("To Profile")
-                    }
+                    // Header
+                    NavbarHeader(text: $viewModel.searchText, showMenu: $viewModel.showMenu)
+                        .confirmationDialog("MainMenu", isPresented: $viewModel.showMenu) {
+                            NavigationLink {
+                                ProfileView()
+                            } label: {
+                                Text("To Profile")
+                            }
+                        }
+                    
+                    Text("Hello World!")
+                    
+                    Spacer()
                 }
             }
         }

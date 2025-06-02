@@ -40,6 +40,7 @@ struct ProfileView: View {
                                 .frame(width: 32, height: 32)
                                 .foregroundStyle(.lightCyan)
                         }
+                        .accessibilityLabel("Back")
                         .padding()
                         Spacer()
                     }

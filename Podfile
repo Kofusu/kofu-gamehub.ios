@@ -6,6 +6,5 @@ target 'kofu-gamehub' do
   use_frameworks!
 
   # Pods for kofu-gamehub
-  pod "Alamofire"
-
+  pod "Alamofire", '5.10.2'
 end
