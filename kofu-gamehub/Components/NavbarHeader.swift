@@ -47,7 +47,7 @@ struct NavbarHeader: View {
                     RoundedRectangle(cornerRadius: 4)
                         .foregroundStyle(.darkBlue)
                 }
-                .padding(.horizontal, 16)
+                .padding(.leading, 16)
                 .font(.custom("VT323-Regular", size: 20))
             } else {
                 Text("Kofu GameHub")
@@ -57,17 +57,7 @@ struct NavbarHeader: View {
             
             Spacer()
             
-            if hasSearch {
-                Button{
-                    // TODO: Search Game
-                } label: {
-                    Image("pixel_search")
-                        .renderingMode(.template)
-                        .resizable()
-                        .frame(width: 22, height: 22)
-                }
-                .submitLabel(.search)
-            } else {
+            if !hasSearch {
                 NavigationLink{
                     SearchView()
                 } label: {

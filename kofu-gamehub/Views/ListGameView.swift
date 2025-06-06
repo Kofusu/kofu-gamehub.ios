@@ -17,6 +17,8 @@ struct ListGameView: View {
                 GameInfoComponent()
                 GameInfoComponent()
             }
+            .padding(.horizontal, 16)
+            .padding(.top, 16)
             
             Spacer()
         }

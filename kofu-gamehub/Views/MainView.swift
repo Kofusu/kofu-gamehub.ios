@@ -134,15 +134,6 @@ struct MainView: View {
                                     .dynamicTypeSize(.medium ... .accessibility5)
                                     .foregroundStyle(.lightCyan)
                                 Spacer()
-                                NavigationLink {
-                                    ListGameView()
-                                } label: {
-                                    Image("pixel_angle-right-solid")
-                                        .renderingMode(.template)
-                                        .resizable()
-                                        .frame(width: 17, height: 17)
-                                        .foregroundStyle(.lightCyan)
-                                }
                             }
                             
                             VStack(spacing: 16) {

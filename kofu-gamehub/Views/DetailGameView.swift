@@ -46,25 +46,27 @@ struct DetailGameView: View {
                 }
                 .frame(height: geo.size.height*0.3)
                 
-                // Game Info
-                GameInfoComponent(readOnlyComponent: true).padding(.horizontal, 16)
-                
-                // Description
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-                    .font(.custom("VT323-Regular", size: 20))
-                    .dynamicTypeSize(.medium ... .accessibility5)
-                    .foregroundStyle(.lightCyan)
-                    .padding(.horizontal, 16)
-                
-                // Tags
-                VStack(alignment: .leading ,spacing: 12) {
-                    Text("Tags")
-                        .font(.custom("VT323-Regular", size: 24))
+                ScrollView {
+                    // Game Info
+                    GameInfoComponent(readOnlyComponent: true).padding(.horizontal, 16)
+                    
+                    // Description
+                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                        .font(.custom("VT323-Regular", size: 20))
                         .dynamicTypeSize(.medium ... .accessibility5)
                         .foregroundStyle(.lightCyan)
-                    HFlow {
-                        ForEach(viewModel.tags, id:\.self) {item in
-                            Tags(text: item)
+                        .padding(.horizontal, 16)
+                    
+                    // Tags
+                    VStack(alignment: .leading ,spacing: 12) {
+                        Text("Tags")
+                            .font(.custom("VT323-Regular", size: 24))
+                            .dynamicTypeSize(.medium ... .accessibility5)
+                            .foregroundStyle(.lightCyan)
+                        HFlow {
+                            ForEach(viewModel.tags, id:\.self) {item in
+                                Tags(text: item)
+                            }
                         }
                     }
                 }
