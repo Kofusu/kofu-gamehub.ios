@@ -13,6 +13,7 @@ struct kofu_gamehubApp: App {
         WindowGroup {
             MainView()
                 .font(.custom("VT323-Regular", size: 16))
+                .background(.darkBlue)
         }
     }
 }

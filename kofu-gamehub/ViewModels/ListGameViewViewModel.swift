@@ -8,5 +8,6 @@
 import Foundation
 
 class ListGameViewViewModel: ObservableObject {
-    @Published var text = "ListGameView"
+    @Published var text = ""
+    @Published var showMenu = false
 }

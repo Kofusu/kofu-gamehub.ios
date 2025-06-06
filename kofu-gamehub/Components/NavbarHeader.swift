@@ -14,17 +14,18 @@ struct NavbarHeader: View {
     @Binding var showMenu: Bool
     
     var hasSearch = false
+    var hasBack = false
     
     var body: some View {
         HStack {
             Button {
-                if hasSearch {
+                if hasSearch || hasBack {
                     dismiss()
                 } else {
                     showMenu = !showMenu
                 }
             } label: {
-                Image(hasSearch ? "pixelarticons_arrow-left": "pixel_bars")
+                Image(hasSearch || hasBack ? "pixelarticons_arrow-left": "pixel_bars")
                     .renderingMode(.template)
                     .resizable()
                     .frame(width: 24, height: 24)
@@ -56,15 +57,27 @@ struct NavbarHeader: View {
             
             Spacer()
             
-            Button{
-                
-            } label: {
-                Image("pixel_search")
-                    .renderingMode(.template)
-                    .resizable()
-                    .frame(width: 22, height: 22)
+            if hasSearch {
+                Button{
+                    // TODO: Search Game
+                } label: {
+                    Image("pixel_search")
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 22, height: 22)
+                }
+                .submitLabel(.search)
+            } else {
+                NavigationLink{
+                    SearchView()
+                } label: {
+                    Image("pixel_search")
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 22, height: 22)
+                }
+                .submitLabel(.search)
             }
-            .submitLabel(.search)
         }
         .foregroundStyle(.lightCyan)
         .padding(16)
@@ -75,6 +88,6 @@ struct NavbarHeader: View {
 #Preview {
     @Previewable @State var text = ""
     @Previewable @State var showMenu = false
-
+    
     NavbarHeader(text:$text, showMenu: $showMenu)
 }

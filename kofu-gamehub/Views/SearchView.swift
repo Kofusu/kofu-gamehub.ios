@@ -10,7 +10,16 @@ import SwiftUI
 struct SearchView: View {
     @StateObject var viewModel = SearchViewViewModel()
     var body: some View {
-        Text(viewModel.text)
+        VStack {
+            NavbarHeader(text: $viewModel.text, showMenu: $viewModel.showMenu, hasSearch: true)
+            ScrollView {
+                GameInfoComponent()
+                GameInfoComponent()
+            }
+            Spacer()
+        }
+        .background(.darkBlue)
+        .navigationBarBackButtonHidden()
     }
 }
 

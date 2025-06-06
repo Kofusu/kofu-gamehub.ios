@@ -9,5 +9,6 @@ import Foundation
 
 
 class SearchViewViewModel: ObservableObject {
-    @Published var text = "SearchView"
+    @Published var text = ""
+    @Published var showMenu = false
 }

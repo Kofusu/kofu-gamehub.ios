@@ -10,7 +10,18 @@ import SwiftUI
 struct ListGameView: View {
     @StateObject var viewModel = ListGameViewViewModel()
     var body: some View {
-        Text(viewModel.text)
+        VStack {
+            NavbarHeader(text: $viewModel.text, showMenu: $viewModel.showMenu, hasBack: true)
+            
+            ScrollView {
+                GameInfoComponent()
+                GameInfoComponent()
+            }
+            
+            Spacer()
+        }
+        .background(.darkBlue)
+        .navigationBarBackButtonHidden()
     }
 }
 
