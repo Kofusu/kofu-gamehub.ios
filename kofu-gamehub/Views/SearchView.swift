@@ -13,8 +13,8 @@ struct SearchView: View {
         VStack {
             NavbarHeader(text: $viewModel.text, showMenu: $viewModel.showMenu, hasSearch: true)
             ScrollView {
-                GameInfoComponent()
-                GameInfoComponent()
+                GameInfoComponent(name: "Elden Ring", description: "Rating: 4/5")
+                GameInfoComponent(name: "Elden Ring", description: "Rating: 4/5")
             }
             .padding(.horizontal, 16)
             .padding(.top, 16)

@@ -14,8 +14,8 @@ struct ListGameView: View {
             NavbarHeader(text: $viewModel.text, showMenu: $viewModel.showMenu, hasBack: true)
             
             ScrollView {
-                GameInfoComponent()
-                GameInfoComponent()
+                GameInfoComponent(name: "Elden Ring", description: "Rating: 4/5")
+                GameInfoComponent(name: "Elden Ring", description: "Rating: 4/5")
             }
             .padding(.horizontal, 16)
             .padding(.top, 16)

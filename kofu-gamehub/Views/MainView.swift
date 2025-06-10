@@ -28,13 +28,11 @@ struct MainView: View {
                         // Game Tags
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
-                                Tags(text: "Hello")
-                                Tags(text: "Hello")
-                                Tags(text: "Hello")
-                                Tags(text: "Hello")
-                                Tags(text: "Hello")
-                                Tags(text: "Hello")
-                                Tags(text: "Hello")
+                                if let tags = viewModel.tagList {
+                                    ForEach(tags.results) { result in
+                                        Tags(text: result.name)
+                                    }
+                                }
                             }
                             .padding(.horizontal, 16)
                         }
@@ -67,43 +65,45 @@ struct MainView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
-                    ForEach(viewModel.platformList.results) { result in
-                        VStack {
-                            AsyncImage(url: URL(string: result.image ?? result.imageBackground)) { phase in
-                                switch phase {
-                                case .empty:
-                                    // Loading state
-                                    ProgressView()
-                                        .frame(width: 100, height: 100)
-                                        .background(Color.gray.opacity(0.3))
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                    
-                                case .success(let image):
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 100, height: 100)
-                                        .clipped()
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                    
-                                case .failure(_):
-                                    // Fallback image
-                                    Image(systemName: "photo.fill")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 100)
-                                        .foregroundColor(.gray)
-                                        .background(Color.gray.opacity(0.2))
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                    
-                                @unknown default:
-                                    EmptyView()
+                    if let platformList = viewModel.platformList {
+                        ForEach(platformList.results) { result in
+                            VStack {
+                                AsyncImage(url: URL(string: result.image ?? result.imageBackground)) { phase in
+                                    switch phase {
+                                    case .empty:
+                                        // Loading state
+                                        ProgressView()
+                                            .frame(width: 100, height: 100)
+                                            .background(Color.gray.opacity(0.3))
+                                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 100, height: 100)
+                                            .clipped()
+                                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        
+                                    case .failure(_):
+                                        // Fallback image
+                                        Image(systemName: "photo.fill")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                            .foregroundColor(.gray)
+                                            .background(Color.gray.opacity(0.2))
+                                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        
+                                    @unknown default:
+                                        EmptyView()
+                                    }
                                 }
+                                Text(result.name)
+                                    .font(.custom("VT323-Regular", size: 20))
+                                    .dynamicTypeSize(.medium ... .accessibility5)
+                                    .foregroundStyle(.lightCyan)
                             }
-                            Text(result.name)
-                                .font(.custom("VT323-Regular", size: 20))
-                                .dynamicTypeSize(.medium ... .accessibility5)
-                                .foregroundStyle(.lightCyan)
                         }
                     }
                 }
@@ -134,9 +134,14 @@ struct MainView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
-                    GameCard()
-                    GameCard()
-                    GameCard()
+                    if let games = viewModel.popularGameList {
+                        ForEach(games.results) {game in
+                            if let url = URL(string: game.backgroundImage ?? "") {
+                                GameCard(imageURL: url, rating: game.rating, name: game.name)
+                            }
+
+                        }
+                    }
                 }
                 .frame(height: 130)
             }
@@ -165,9 +170,14 @@ struct MainView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
-                    GameCard()
-                    GameCard()
-                    GameCard()
+                    if let games = viewModel.newestGameList {
+                        ForEach(games.results) {game in
+                            if let url = URL(string: game.backgroundImage ?? "") {
+                                GameCard(imageURL: url, rating: game.rating, name: game.name)
+                            }
+
+                        }
+                    }
                 }
                 .frame(height: 130)
             }
@@ -185,10 +195,12 @@ struct MainView: View {
                 Spacer()
             }
             
-            VStack(spacing: 16) {
-                GameInfoComponent()
-                GameInfoComponent()
-                GameInfoComponent()
+            LazyVStack(spacing: 16) {
+                if let developer = viewModel.topDevList {
+                    ForEach(developer.results) { item in
+                        GameInfoComponent(readOnlyComponent: true, name: item.name, description: "\(item.gamesCount) Games", image: URL(string: item.imageBackground!)!)
+                    }
+                }
             }
         }.padding(.horizontal, 16)
     }
