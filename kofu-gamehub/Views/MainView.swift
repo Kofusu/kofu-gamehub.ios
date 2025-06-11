@@ -122,7 +122,7 @@ struct MainView: View {
                     .foregroundStyle(.lightCyan)
                 Spacer()
                 NavigationLink {
-                    ListGameView()
+                    ListGameView(ordering: .popular, sorting: .desc)
                 } label: {
                     Image("pixel_angle-right-solid")
                         .renderingMode(.template)
@@ -158,7 +158,7 @@ struct MainView: View {
                     .foregroundStyle(.lightCyan)
                 Spacer()
                 NavigationLink {
-                    ListGameView()
+                    ListGameView(ordering: .created, sorting: .asc)
                 } label: {
                     Image("pixel_angle-right-solid")
                         .renderingMode(.template)

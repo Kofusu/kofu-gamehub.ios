@@ -48,11 +48,14 @@ struct GameCard: View {
                             .font(.custom("VT323-Regular", size: 17))
                             .dynamicTypeSize(.medium ... .accessibility5)
                             .foregroundStyle(.lightCyan)
+                            .shadow(color: .black.opacity(0.8), radius: 2, x: 0, y: 2)
+
                         Image("pixel_star-solid")
                             .renderingMode(.template)
                             .resizable()
                             .frame(width: 16, height: 16)
                             .foregroundStyle(.lightCyan)
+                            .shadow(color: .black.opacity(0.8), radius: 2, x: 0, y: 2)
                     }
                     .padding(.top, 4)
                     .padding(.trailing, 4)

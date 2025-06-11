@@ -67,13 +67,17 @@ struct GameInfoComponent: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text(name)
                     .foregroundStyle(.lightCyan)
-                    .font(.custom("VT323-Regular", size: 28))
+                    .font(.custom("VT323-Regular", size: 24))
                     .bold()
-                    .dynamicTypeSize(.medium ... .accessibility5)
+                    .dynamicTypeSize(.medium ... .accessibility4)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(1)
                 Text(description)
                     .foregroundStyle(.lightCyan)
                     .font(.custom("VT323-Regular", size: 20))
                     .dynamicTypeSize(.medium ... .accessibility5)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(1)
                 
                 HStack(spacing: 8) {
                     Image("ri_playstation-fill")

@@ -139,7 +139,7 @@ class MainViewViewModel: ObservableObject {
         components?.queryItems = [
             URLQueryItem(name: "key", value: RAWG_API_KEY),
             URLQueryItem(name: "page_size", value: "10"),
-            URLQueryItem(name: "ordering", value: "rating")
+            URLQueryItem(name: "ordering", value: "-rating")
         ]
         
         guard let url = components?.url else { return }
