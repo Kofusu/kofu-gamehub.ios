@@ -13,6 +13,7 @@ struct GameInfoComponent: View {
     var name: String
     var description: String
     var image: URL?
+    var released: String? = "-"
     
     var body: some View {
         if readOnlyComponent  {
@@ -79,6 +80,12 @@ struct GameInfoComponent: View {
                     .dynamicTypeSize(.medium ... .accessibility5)
                     .multilineTextAlignment(.leading)
                     .lineLimit(1)
+                Text("Released: \(released!)")
+                    .foregroundStyle(.lightCyan)
+                    .font(.custom("VT323-Regular", size: 20))
+                    .dynamicTypeSize(.medium ... .accessibility5)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(1)
                 
                 HStack(spacing: 8) {
                     Image("ri_playstation-fill")
@@ -104,5 +111,5 @@ struct GameInfoComponent: View {
     }
 }
 #Preview {
-    GameInfoComponent(id: 1, name: "Elden Ring", description: "Rating: 4/5", image: URL(string: "https://images.unsplash.com/photo-1615680022647-99c397cbcaea?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")!)
+    GameInfoComponent(id: 1, name: "Elden Ring", description: "Rating: 4/5", image: URL(string: "https://images.unsplash.com/photo-1615680022647-99c397cbcaea?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")!, released: "2002-05-06")
 }

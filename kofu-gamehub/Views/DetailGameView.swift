@@ -44,8 +44,6 @@ struct DetailGameView: View {
                         .padding(.top, 10)
                         .padding(.leading, 16)
                         
-                        Image("profile-cover")
-                            .resizable()
                         AsyncImage(url: URL(string: detailGame.backgroundImageAdditional ?? "")) { phase in
                             switch phase {
                             case .empty:
@@ -73,7 +71,7 @@ struct DetailGameView: View {
                     
                     ScrollView {
                         // Game Info
-                        GameInfoComponent(id: 1, readOnlyComponent: true, name: detailGame.name, description: "Rating: \(detailGame.rating)", image: URL(string: detailGame.backgroundImage ?? "")).padding(.horizontal, 16)
+                        GameInfoComponent(id: 1, readOnlyComponent: true, name: detailGame.name, description: "Rating: \(detailGame.rating)", image: URL(string: detailGame.backgroundImage ?? ""), released: detailGame.released ?? "-").padding(.horizontal, 16)
                         
                         // Description
                         Text(detailGame.description)

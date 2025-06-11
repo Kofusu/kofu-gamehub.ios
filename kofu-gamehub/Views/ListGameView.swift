@@ -50,7 +50,8 @@ struct ListGameView: View {
                             id: result.id,
                             name: result.name,
                             description: "Rating: \(String(result.rating))",
-                            image: URL(string: result.backgroundImage ?? "")
+                            image: URL(string: result.backgroundImage ?? ""),
+                            released: result.released ?? "-"
                         )
                     }
                 } else {
