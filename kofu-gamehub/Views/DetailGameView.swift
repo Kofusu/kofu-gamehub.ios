@@ -49,17 +49,21 @@ struct DetailGameView: View {
                             case .empty:
                                 // Loading state
                                 ProgressView()
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .background(Color.gray.opacity(0.3))
                                 
                             case .success(let image):
                                 image
                                     .resizable()
+                                    .aspectRatio(contentMode: .fill)
                                 
                             case .failure(_):
                                 // Fallback image
                                 Image(systemName: "photo.fill")
                                     .resizable()
+                                    .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.gray)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .background(Color.gray.opacity(0.2))
                                 
                             @unknown default:
@@ -67,7 +71,8 @@ struct DetailGameView: View {
                             }
                         }
                     }
-                    .frame(height: geo.size.height*0.3)
+                    .frame(height: geo.size.height * 0.3)
+                    .clipped()
                     
                     ScrollView {
                         // Game Info

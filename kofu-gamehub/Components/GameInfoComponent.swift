@@ -13,7 +13,7 @@ struct GameInfoComponent: View {
     var name: String
     var description: String
     var image: URL?
-    var released: String? = "-"
+    var released: String?
     
     var body: some View {
         if readOnlyComponent  {
@@ -80,12 +80,14 @@ struct GameInfoComponent: View {
                     .dynamicTypeSize(.medium ... .accessibility5)
                     .multilineTextAlignment(.leading)
                     .lineLimit(1)
-                Text("Released: \(released!)")
-                    .foregroundStyle(.lightCyan)
-                    .font(.custom("VT323-Regular", size: 20))
-                    .dynamicTypeSize(.medium ... .accessibility5)
-                    .multilineTextAlignment(.leading)
-                    .lineLimit(1)
+                if let release = released {
+                    Text("Released: \(release)")
+                        .foregroundStyle(.lightCyan)
+                        .font(.custom("VT323-Regular", size: 20))
+                        .dynamicTypeSize(.medium ... .accessibility5)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(1)
+                }
                 
                 HStack(spacing: 8) {
                     Image("ri_playstation-fill")
