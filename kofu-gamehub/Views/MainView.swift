@@ -137,7 +137,7 @@ struct MainView: View {
                     if let games = viewModel.popularGameList {
                         ForEach(games.results) {game in
                             if let url = URL(string: game.backgroundImage ?? "") {
-                                GameCard(imageURL: url, rating: game.rating, name: game.name)
+                                GameCard(id: game.id, imageURL: url, rating: game.rating, name: game.name)
                             }
 
                         }
@@ -158,7 +158,7 @@ struct MainView: View {
                     .foregroundStyle(.lightCyan)
                 Spacer()
                 NavigationLink {
-                    ListGameView(ordering: .created, sorting: .asc)
+                    ListGameView(ordering: .created, sorting: .desc)
                 } label: {
                     Image("pixel_angle-right-solid")
                         .renderingMode(.template)
@@ -173,7 +173,7 @@ struct MainView: View {
                     if let games = viewModel.newestGameList {
                         ForEach(games.results) {game in
                             if let url = URL(string: game.backgroundImage ?? "") {
-                                GameCard(imageURL: url, rating: game.rating, name: game.name)
+                                GameCard(id: game.id, imageURL: url, rating: game.rating, name: game.name)
                             }
 
                         }
@@ -198,7 +198,7 @@ struct MainView: View {
             LazyVStack(spacing: 16) {
                 if let developer = viewModel.topDevList {
                     ForEach(developer.results) { item in
-                        GameInfoComponent(readOnlyComponent: true, name: item.name, description: "\(item.gamesCount) Games", image: URL(string: item.imageBackground!)!)
+                        GameInfoComponent(id: item.id, readOnlyComponent: true, name: item.name, description: "\(item.gamesCount) Games", image: URL(string: item.imageBackground!)!)
                     }
                 }
             }

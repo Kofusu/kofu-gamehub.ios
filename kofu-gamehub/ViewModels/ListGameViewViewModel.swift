@@ -42,7 +42,6 @@ class ListGameViewViewModel: ObservableObject {
     }
 
     private func setupBindings() {
-        // Debounce pencarian text biar gak spam API
         $text
             .removeDuplicates()
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)

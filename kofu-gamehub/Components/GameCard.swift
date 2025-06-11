@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct GameCard: View {
+    let id: Int
     let imageURL: URL
     let rating: Float16
     let name: String
     
     var body: some View {
         NavigationLink {
-            DetailGameView()
+            DetailGameView(gameId: id)
         } label: {
             VStack(alignment: .leading) {
                 ZStack(alignment: .topTrailing) {
@@ -73,5 +74,5 @@ struct GameCard: View {
 }
 
 #Preview {
-    GameCard(imageURL: URL(string: "https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg")!, rating: 4.5, name: "Elden Ring")
+    GameCard(id: 1,imageURL: URL(string: "https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg")!, rating: 4.5, name: "Elden Ring")
 }

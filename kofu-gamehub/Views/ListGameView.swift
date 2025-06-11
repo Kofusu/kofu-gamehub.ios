@@ -47,6 +47,7 @@ struct ListGameView: View {
                 } else if let gameResult = viewModel.listGame {
                     ForEach(gameResult.results) { result in
                         GameInfoComponent(
+                            id: result.id,
                             name: result.name,
                             description: "Rating: \(String(result.rating))",
                             image: URL(string: result.backgroundImage ?? "")

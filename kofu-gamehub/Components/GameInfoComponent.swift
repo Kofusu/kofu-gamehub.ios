@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GameInfoComponent: View {
+    var id: Int
     var readOnlyComponent: Bool = false
     var name: String
     var description: String
@@ -18,7 +19,7 @@ struct GameInfoComponent: View {
             Component
         } else{
             NavigationLink {
-                DetailGameView()
+                DetailGameView(gameId: id)
             } label: {
                 Component
             }
@@ -103,5 +104,5 @@ struct GameInfoComponent: View {
     }
 }
 #Preview {
-    GameInfoComponent(name: "Elden Ring", description: "Rating: 4/5", image: URL(string: "https://images.unsplash.com/photo-1615680022647-99c397cbcaea?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")!)
+    GameInfoComponent(id: 1, name: "Elden Ring", description: "Rating: 4/5", image: URL(string: "https://images.unsplash.com/photo-1615680022647-99c397cbcaea?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")!)
 }
