@@ -66,6 +66,7 @@ struct ListGameView: View {
         .background(.darkBlue)
         .navigationBarBackButtonHidden()
         .onAppear {
+            viewModel.text = "Kofu GameHub"
             viewModel.updateOrderingAndSorting(ordering: ordering, sorting: sorting)
         }
     }
