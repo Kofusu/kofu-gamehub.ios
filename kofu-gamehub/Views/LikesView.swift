@@ -33,10 +33,10 @@ struct LikesView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top, 40)
                 } else if let gameResult = viewModel.games {
-                    ForEach(gameResult.results) { result in
+                    ForEach(gameResult) { result in
                         GameInfoComponent(
-                            id: result.id,
-                            name: result.name,
+                            id: Int(result.id),
+                            name: result.name ?? "-",
                             description: "Rating: \(String(result.rating))",
                             image: URL(string: result.backgroundImage ?? ""),
                             released: result.released ?? "-"
@@ -55,6 +55,9 @@ struct LikesView: View {
         }
         .background(.darkBlue)
         .navigationBarBackButtonHidden()
+        .onAppear {
+            viewModel.fetchLikedGames()
+        }
     }
 }
 
