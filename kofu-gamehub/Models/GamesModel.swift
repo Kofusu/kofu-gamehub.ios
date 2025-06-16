@@ -14,7 +14,7 @@ struct GameModel: Codable, Identifiable {
     let released: String?
     let backgroundImage: String?
     let rating: Float16
-    let updated: String
+    let updated: String?
     
     enum CodingKeys: String, CodingKey {
         case id

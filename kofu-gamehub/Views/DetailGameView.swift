@@ -71,14 +71,16 @@ struct DetailGameView: View {
 
                             // Like Button (kanan bawah)
                             Button {
-                                // TODO: Adding games to likes
+                                if let gameDetail = viewModel.gameDetail {
+                                    viewModel.likeGameHandler(gameDetail)
+                                }
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: .infinity, style: .circular)
                                         .frame(width: 64, height: 64)
                                         .foregroundStyle(.darkCyan)
                                     
-                                    Image("pixelarticons_heart")
+                                    Image(viewModel.isLiked ? "pixelarticons_heart-fill" : "pixelarticons_heart")
                                         .renderingMode(.template)
                                         .resizable()
                                         .frame(width: 36, height: 36)

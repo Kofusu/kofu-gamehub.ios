@@ -17,7 +17,7 @@ struct DetailGameModel: Codable {
     let backgroundImage: String?
     let backgroundImageAdditional: String?
     let website: String?
-    let rating: Double
+    let rating: Float16
     let tags: [DetailTag]?
 
     enum CodingKeys: String, CodingKey {
