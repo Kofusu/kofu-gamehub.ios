@@ -31,6 +31,7 @@ struct DetailGameView: View {
                 VStack(spacing: 20) {
                     // Game Image Preview
                     ZStack(alignment: .topLeading) {
+                        // Back Button
                         Button {
                             dismiss()
                         } label: {
@@ -43,36 +44,54 @@ struct DetailGameView: View {
                         .zIndex(10)
                         .padding(.top, 10)
                         .padding(.leading, 16)
-                        
-                        AsyncImage(url: URL(string: detailGame.backgroundImageAdditional ?? "")) { phase in
-                            switch phase {
-                            case .empty:
-                                // Loading state
-                                ProgressView()
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .background(Color.gray.opacity(0.3))
-                                
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                
-                            case .failure(_):
-                                // Fallback image
-                                Image(systemName: "photo.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .foregroundColor(.gray)
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .background(Color.gray.opacity(0.2))
-                                
-                            @unknown default:
-                                EmptyView()
+
+                        // Image + Like button di kanan bawah
+                        ZStack(alignment: .bottomTrailing) {
+                            AsyncImage(url: URL(string: detailGame.backgroundImageAdditional ?? "")) { phase in
+                                switch phase {
+                                case .empty:
+                                    ProgressView()
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .background(Color.gray.opacity(0.3))
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                case .failure(_):
+                                    Image(systemName: "photo.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .foregroundColor(.gray)
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .background(Color.gray.opacity(0.2))
+                                @unknown default:
+                                    EmptyView()
+                                }
                             }
+
+                            // Like Button (kanan bawah)
+                            Button {
+                                // TODO: Adding games to likes
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: .infinity, style: .circular)
+                                        .frame(width: 64, height: 64)
+                                        .foregroundStyle(.darkCyan)
+                                    
+                                    Image("pixelarticons_heart")
+                                        .renderingMode(.template)
+                                        .resizable()
+                                        .frame(width: 36, height: 36)
+                                        .foregroundStyle(.lightCyan)
+                                        .offset(y: 2)
+                                }
+                            }
+                            .padding(.trailing, 16)
+                            .offset(y: 32)
                         }
                     }
                     .frame(height: geo.size.height * 0.3)
-                    .clipped()
+                    .zIndex(10)
                     
                     ScrollView {
                         // Game Info

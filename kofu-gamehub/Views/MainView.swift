@@ -15,11 +15,16 @@ struct MainView: View {
             VStack(spacing: 24) {
                 // Header
                 NavbarHeader(text: $viewModel.searchText, showMenu: $viewModel.showMenu)
-                    .confirmationDialog("MainMenu", isPresented: $viewModel.showMenu) {
+                    .confirmationDialog("", isPresented: $viewModel.showMenu, titleVisibility: .hidden) {
                         NavigationLink {
                             ProfileView()
                         } label: {
                             Text("Creator Profile")
+                        }
+                        NavigationLink {
+                            LikesView()
+                        } label: {
+                            Text("Likes you've Made")
                         }
                     }
                 
