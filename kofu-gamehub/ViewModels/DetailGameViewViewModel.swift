@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import SwiftUICore
+import UserNotifications
 
 class DetailGameViewViewModel: ObservableObject {
     @Published var gameDetail: DetailGameModel?
@@ -22,9 +23,14 @@ class DetailGameViewViewModel: ObservableObject {
         
         detailGameSession = URLSession(configuration: config)
         context = PersistenceController.shared.container.viewContext
+        
+        requestNotificationPermission()
     }
     
     func likeGameHandler(_ game: DetailGameModel) {
+        DispatchQueue.main.async {
+            self.triggerNotification()
+        }
         if isLiked {
             let request = NSFetchRequest<CoreGameModel>(entityName: "CoreGameModel")
             request.predicate = NSPredicate(format: "id == %d", game.id)
@@ -51,6 +57,35 @@ class DetailGameViewViewModel: ObservableObject {
             try? context.save()
         }
         isLiked.toggle()
+    }
+    
+    func requestNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .provisional, .sound]) { granted, error in
+            if granted {
+                print("✅ Izin granted")
+            } else {
+                print("❌ Izin ditolak")
+            }
+        }
+    }
+    
+    func triggerNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Aksi berhasil dilakukan"
+        content.body = "Anda telah \(isLiked ? "menghapus" : "menambahkan") Game \(gameDetail?.name ?? "-")"
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("❌ Gagal kirim notif: \(error)")
+            } else {
+                print("✅ Notif scheduled")
+            }
+        }
     }
     
     func fetchDetailGame(_ id: Int) {
