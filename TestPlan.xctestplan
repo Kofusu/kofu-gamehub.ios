@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "E1DC4D1E-A56D-476B-976B-0FEE50C63632",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:kofu-gamehub.xcodeproj",
+        "identifier" : "DCC9983B2E0058C7008C1E3E",
+        "name" : "kofu-gamehubTests"
+      }
+    }
+  ],
+  "version" : 1
+}

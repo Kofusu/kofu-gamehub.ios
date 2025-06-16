@@ -32,6 +32,16 @@
          <TestPlanReference
             reference = "container:kofu-gamehubUITests/TestPlan.xctestplan">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:KofuTestPlan.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:kofu-gamehub/KofuTestPlan.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:TestPlan.xctestplan">
+         </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference
@@ -42,6 +52,17 @@
                BlueprintIdentifier = "DC4829A22DFDD1220081B748"
                BuildableName = "kofu-gamehubUITests.xctest"
                BlueprintName = "kofu-gamehubUITests"
+               ReferencedContainer = "container:kofu-gamehub.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DCC9983B2E0058C7008C1E3E"
+               BuildableName = "kofu-gamehubTests.xctest"
+               BlueprintName = "kofu-gamehubTests"
                ReferencedContainer = "container:kofu-gamehub.xcodeproj">
             </BuildableReference>
          </TestableReference>

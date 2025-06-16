@@ -14,8 +14,6 @@ struct kofu_gamehubApp: App {
         WindowGroup {
             MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .font(.custom("VT323-Regular", size: 16))
-                .background(.darkBlue)
         }
     }
 }

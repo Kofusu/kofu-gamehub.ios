@@ -8,14 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		0810AB1D17441B5705668F50 /* Pods_kofu_gamehub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729B4886EC038005C86377F9 /* Pods_kofu_gamehub.framework */; };
+		DC0A72112E006AAE00B238AD /* TestPlan.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = DC0A72102E006AAE00B238AD /* TestPlan.xctestplan */; };
 		DC14BB222DE8C9E30046EFE2 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = DC14BB212DE8C9E30046EFE2 /* Flow */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCC998402E0058C7008C1E3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC402BE52DE8792A00E94468 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC402BEC2DE8792A00E94468;
+			remoteInfo = "kofu-gamehub";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		39F0BD93EF61CFD594C6C254 /* Pods-kofu-gamehub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kofu-gamehub.debug.xcconfig"; path = "Target Support Files/Pods-kofu-gamehub/Pods-kofu-gamehub.debug.xcconfig"; sourceTree = "<group>"; };
 		729B4886EC038005C86377F9 /* Pods_kofu_gamehub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kofu_gamehub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8026A7FE60E9C7FAF382DC05 /* Pods-kofu-gamehub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kofu-gamehub.release.xcconfig"; path = "Target Support Files/Pods-kofu-gamehub/Pods-kofu-gamehub.release.xcconfig"; sourceTree = "<group>"; };
+		DC0A72102E006AAE00B238AD /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		DC402BED2DE8792A00E94468 /* kofu-gamehub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kofu-gamehub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCC9983C2E0058C7008C1E3E /* kofu-gamehubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kofu-gamehubTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -37,6 +50,11 @@
 			path = "kofu-gamehub";
 			sourceTree = "<group>";
 		};
+		DCC9983D2E0058C7008C1E3E /* kofu-gamehubTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "kofu-gamehubTests";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +64,13 @@
 			files = (
 				DC14BB222DE8C9E30046EFE2 /* Flow in Frameworks */,
 				0810AB1D17441B5705668F50 /* Pods_kofu_gamehub.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC998392E0058C7008C1E3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +97,9 @@
 		DC402BE42DE8792A00E94468 = {
 			isa = PBXGroup;
 			children = (
+				DC0A72102E006AAE00B238AD /* TestPlan.xctestplan */,
 				DC402BEF2DE8792A00E94468 /* kofu-gamehub */,
+				DCC9983D2E0058C7008C1E3E /* kofu-gamehubTests */,
 				DC402BEE2DE8792A00E94468 /* Products */,
 				9C8F668C4597B5672A137CCF /* Pods */,
 				2F934E8BCD031DDF0209D5A5 /* Frameworks */,
@@ -83,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				DC402BED2DE8792A00E94468 /* kofu-gamehub.app */,
+				DCC9983C2E0058C7008C1E3E /* kofu-gamehubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +140,29 @@
 			productReference = DC402BED2DE8792A00E94468 /* kofu-gamehub.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DCC9983B2E0058C7008C1E3E /* kofu-gamehubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCC998442E0058C8008C1E3E /* Build configuration list for PBXNativeTarget "kofu-gamehubTests" */;
+			buildPhases = (
+				DCC998382E0058C7008C1E3E /* Sources */,
+				DCC998392E0058C7008C1E3E /* Frameworks */,
+				DCC9983A2E0058C7008C1E3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCC998412E0058C7008C1E3E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DCC9983D2E0058C7008C1E3E /* kofu-gamehubTests */,
+			);
+			name = "kofu-gamehubTests";
+			packageProductDependencies = (
+			);
+			productName = "kofu-gamehubTests";
+			productReference = DCC9983C2E0058C7008C1E3E /* kofu-gamehubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -119,11 +170,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1630;
+				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					DC402BEC2DE8792A00E94468 = {
 						CreatedOnToolsVersion = 16.3;
+					};
+					DCC9983B2E0058C7008C1E3E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = DC402BEC2DE8792A00E94468;
 					};
 				};
 			};
@@ -145,12 +200,21 @@
 			projectRoot = "";
 			targets = (
 				DC402BEC2DE8792A00E94468 /* kofu-gamehub */,
+				DCC9983B2E0058C7008C1E3E /* kofu-gamehubTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DC402BEB2DE8792A00E94468 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC0A72112E006AAE00B238AD /* TestPlan.xctestplan in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC9983A2E0058C7008C1E3E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -213,7 +277,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DCC998382E0058C7008C1E3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCC998412E0058C7008C1E3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC402BEC2DE8792A00E94468 /* kofu-gamehub */;
+			targetProxy = DCC998402E0058C7008C1E3E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DC402BF62DE8792C00E94468 /* Debug */ = {
@@ -407,6 +486,42 @@
 			};
 			name = Release;
 		};
+		DCC998422E0058C7008C1E3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.iosacademy.kofu-gamehubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kofu-gamehub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/kofu-gamehub";
+			};
+			name = Debug;
+		};
+		DCC998432E0058C7008C1E3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.iosacademy.kofu-gamehubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kofu-gamehub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/kofu-gamehub";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -424,6 +539,15 @@
 			buildConfigurations = (
 				DC402BF92DE8792C00E94468 /* Debug */,
 				DC402BFA2DE8792C00E94468 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCC998442E0058C8008C1E3E /* Build configuration list for PBXNativeTarget "kofu-gamehubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCC998422E0058C7008C1E3E /* Debug */,
+				DCC998432E0058C7008C1E3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
