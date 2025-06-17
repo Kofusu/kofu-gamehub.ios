@@ -14,21 +14,21 @@ struct GameInfoComponent: View {
     var description: String
     var image: URL?
     var released: String?
-    
+
     var body: some View {
-        if readOnlyComponent  {
-            Component
-        } else{
+        if readOnlyComponent {
+            component
+        } else {
             NavigationLink {
                 DetailGameView(gameId: id)
             } label: {
-                Component
+                component
             }
         }
     }
-    
+
     @ViewBuilder
-    var Component: some View {
+    var component: some View {
         HStack(alignment: .top, spacing: 16) {
             AsyncImage(url: image) { phase in
                 switch phase {
@@ -40,7 +40,7 @@ struct GameInfoComponent: View {
                         .cornerRadius(8)
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 12))
-                    
+
                 case .success(let image):
                     image
                         .resizable()
@@ -49,8 +49,8 @@ struct GameInfoComponent: View {
                         .cornerRadius(8)
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 12))
-                    
-                case .failure(_):
+
+                case .failure:
                     // Fallback image
                     Image(systemName: "photo.fill")
                         .resizable()
@@ -60,12 +60,12 @@ struct GameInfoComponent: View {
                         .foregroundColor(.gray)
                         .background(Color.gray.opacity(0.2))
                         .clipShape(RoundedRectangle(cornerRadius: 12))
-                    
+
                 @unknown default:
                     EmptyView()
                 }
             }
-            
+
             VStack(alignment: .leading, spacing: 6) {
                 Text(name)
                     .foregroundStyle(.lightCyan)
@@ -88,7 +88,7 @@ struct GameInfoComponent: View {
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)
                 }
-                
+
                 HStack(spacing: 8) {
                     Image("ri_playstation-fill")
                         .renderingMode(.template)
@@ -113,5 +113,10 @@ struct GameInfoComponent: View {
     }
 }
 #Preview {
-    GameInfoComponent(id: 1, name: "Elden Ring", description: "Rating: 4/5", image: URL(string: "https://images.unsplash.com/photo-1615680022647-99c397cbcaea?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")!, released: "2002-05-06")
+    GameInfoComponent(
+        id: 1,
+        name: "Elden Ring",
+        description: "Rating: 4/5",
+        image: URL(string: "https://images.unsplash.com/photo-1615680022647-99c397cbcaea?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")!,
+        released: "2002-05-06")
 }

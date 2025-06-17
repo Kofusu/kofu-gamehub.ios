@@ -89,9 +89,9 @@ class DetailGameViewViewModel: ObservableObject {
     }
     
     func fetchDetailGame(_ id: Int) {
-        var urlComponents = URLComponents(string: RAWG_BASE_URL+"games/"+String(id))
+        var urlComponents = URLComponents(string: rawgBaseUrl+"games/"+String(id))
         urlComponents?.queryItems = [
-            URLQueryItem(name: "key", value: RAWG_API_KEY),
+            URLQueryItem(name: "key", value: rawgApiKey),
         ]
         
         guard let url = urlComponents?.url else { return }

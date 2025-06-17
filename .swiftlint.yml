@@ -1,0 +1,23 @@
+# Matikan rules tertentu yang biasa ngeselin
+disabled_rules:
+  - type_name
+  - line_length
+  - trailing_whitespace
+  - identifier_name
+
+# Nyalain rules opsional yang berguna
+opt_in_rules:
+  - explicit_init
+  - closure_spacing
+
+# Include folder project (kalau mau di-spesifikin, tapi opsional)
+included:
+  - kofu-gamehub
+  - kofu-gamehubTests
+
+# Exclude folder yang gak perlu dilint
+excluded:
+  - Pods
+  - Carthage
+  - .build
+  - fastlane

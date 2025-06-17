@@ -57,9 +57,9 @@ class ListGameViewViewModel: ObservableObject {
 
         let orderingValue = sorting.rawValue + ordering.rawValue
 
-        var components = URLComponents(string: RAWG_BASE_URL + "games")
+        var components = URLComponents(string: rawgBaseUrl + "games")
         components?.queryItems = [
-            URLQueryItem(name: "key", value: RAWG_API_KEY),
+            URLQueryItem(name: "key", value: rawgApiKey),
             URLQueryItem(name: "page_size", value: hasSearch ? "10" : "100"),
             URLQueryItem(name: "ordering", value: hasSearch ? "" : orderingValue),
             URLQueryItem(name: "search", value: hasSearch ? text : "")

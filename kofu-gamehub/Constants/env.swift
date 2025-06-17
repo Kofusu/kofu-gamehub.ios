@@ -7,5 +7,5 @@
 
 import Foundation
 
-let RAWG_API_KEY = "bd05f3e0f4b64915af2a6d2507b208a4"
-let RAWG_BASE_URL = "https://api.rawg.io/api/"
+let rawgApiKey = "bd05f3e0f4b64915af2a6d2507b208a4"
+let rawgBaseUrl = "https://api.rawg.io/api/"

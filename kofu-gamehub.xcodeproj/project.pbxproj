@@ -10,6 +10,7 @@
 		0810AB1D17441B5705668F50 /* Pods_kofu_gamehub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729B4886EC038005C86377F9 /* Pods_kofu_gamehub.framework */; };
 		DC0A72112E006AAE00B238AD /* TestPlan.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = DC0A72102E006AAE00B238AD /* TestPlan.xctestplan */; };
 		DC14BB222DE8C9E30046EFE2 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = DC14BB212DE8C9E30046EFE2 /* Flow */; };
+		DC7D56D22E018C27005D2A00 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DC7D56D12E018C24005D2A00 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +29,7 @@
 		8026A7FE60E9C7FAF382DC05 /* Pods-kofu-gamehub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kofu-gamehub.release.xcconfig"; path = "Target Support Files/Pods-kofu-gamehub/Pods-kofu-gamehub.release.xcconfig"; sourceTree = "<group>"; };
 		DC0A72102E006AAE00B238AD /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		DC402BED2DE8792A00E94468 /* kofu-gamehub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kofu-gamehub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7D56D12E018C24005D2A00 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		DCC9983C2E0058C7008C1E3E /* kofu-gamehubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kofu-gamehubTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 		DC402BE42DE8792A00E94468 = {
 			isa = PBXGroup;
 			children = (
+				DC7D56D12E018C24005D2A00 /* .swiftlint.yml */,
 				DC0A72102E006AAE00B238AD /* TestPlan.xctestplan */,
 				DC402BEF2DE8792A00E94468 /* kofu-gamehub */,
 				DCC9983D2E0058C7008C1E3E /* kofu-gamehubTests */,
@@ -127,6 +130,7 @@
 				DC402BEA2DE8792A00E94468 /* Frameworks */,
 				DC402BEB2DE8792A00E94468 /* Resources */,
 				735311BDE6D4208DE2F42C94 /* [CP] Embed Pods Frameworks */,
+				DC7D56D32E018C75005D2A00 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -193,6 +197,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				DC14BB202DE8C9E30046EFE2 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
+				DC7D56D02E018B30005D2A00 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DC402BEE2DE8792A00E94468 /* Products */;
@@ -210,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC7D56D22E018C27005D2A00 /* .swiftlint.yml in Resources */,
 				DC0A72112E006AAE00B238AD /* TestPlan.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +272,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kofu-gamehub/Pods-kofu-gamehub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DC7D56D32E018C75005D2A00 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ -f /opt/homebrew/bin/swiftlint ]; then\n    echo \"✅ Linting with SwiftLint\"\n    /opt/homebrew/bin/swiftlint\nelse\n    echo \"❌ SwiftLint not found at /opt/homebrew/bin/swiftlint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -561,6 +584,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 3.0.2;
+			};
+		};
+		DC7D56D02E018B30005D2A00 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.59.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
